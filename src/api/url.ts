@@ -1,0 +1,14 @@
+export const USER_REGISTER_LOG_IN_API = 'auth/loginotp';
+export const LOGIN_OTP_VERIFY = 'auth/loginotpverify';
+export const RESEND_MOBILE_OTP = 'auth/resendmobileotp';
+export const USER_LOG_IN_WITH_PASSWORD = 'auth/login';
+export const USER_SETTING = 'auth/settings';
+export const USER_CHECK_BY_EMAIL = 'auth/usercheckbyemail';
+export const SPEC_LIST_URL = 'booking/speclist';
+export const DOCTOR_SPEC_LIST_URL = 'booking/doclistingspec';
+export const HOME_PAGE = 'auth/homepage';
+export const SEARCH_API_URL = 'booking/searchmedicinebyname';
+export const FORGET_PASSWORD_OTP_URL = 'auth/forgetotp';
+export const NEW_PASSWORD_URL = 'auth/forgetpasswordupdate';
+export const DOCTOR_VIDEO_HOME_URL = 'booking/videomainpage';
+export const DOCTOR_PROFILE_DETAIL_URL = 'booking/docprofile';

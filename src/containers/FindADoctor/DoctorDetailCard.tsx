@@ -1,0 +1,198 @@
+import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {FlashList} from '@shopify/flash-list';
+import {ParamListBase, useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+
+// local imports
+import {colors, styles} from '../../themes';
+import CText from '../../components/common/CText';
+import {LikeIcon, ShareIcon} from '../../assets/svgs';
+import RatingComponent from '../../components/HomeComponent/RatingComponent';
+import CButton from '../../components/common/CButton';
+import strings from '../../i18n/strings';
+import {DoctorListAPI} from '../../api/homeApis';
+import {getHeight, moderateScale} from '../../common/constants';
+import {BASE_IMG_NEW_PATH} from '../../api/constant';
+import {StackNav} from '../../navigation/NavigationKeys';
+
+export default function DoctorDetailCard({title}: any) {
+  const [specDoctorList, setSpecDoctorList] = useState<any>();
+  const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const doctorList = (await DoctorListAPI(title)) as any;
+      console.log('doctorList', doctorList);
+      setSpecDoctorList(doctorList?.data[0].doctorList);
+    };
+    fetchData();
+  }, []);
+
+  const onPressDoctorProfile = (id: any) =>
+    navigation.navigate(StackNav.DortorProfile, {id});
+
+  const renderItem = ({item, index}: any) => {
+    return (
+      <View style={localStyles.cardMainContainer}>
+        <View style={[styles.flexRow, styles.justifyBetween]}>
+          <View style={localStyles.leftContainer}>
+            <Image
+              source={{
+                uri: BASE_IMG_NEW_PATH + item?.photo,
+              }}
+              style={localStyles.doctorImgStyle}
+            />
+            <View style={localStyles.titleContainer}>
+              <CText type="s12">{item?.name}</CText>
+              <CText
+                type="m10"
+                style={styles.mv5}
+                color={colors.textColor5}
+                numberOfLines={2}>
+                {item?.major_disease + ' | ' + item?.experience + ' YRS EXP'}
+              </CText>
+              <CText type="r10" numberOfLines={2} color={colors.textColor2}>
+                {item?.services_offered}
+              </CText>
+            </View>
+          </View>
+          <View>
+            <View style={localStyles.iconContainer}>
+              <TouchableOpacity style={styles.ph5}>
+                <ShareIcon />
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.ph5}>
+                <LikeIcon />
+              </TouchableOpacity>
+            </View>
+            <View style={localStyles.iconContainer}>
+              <CText type="s12" numberOfLines={2} color={colors.black}>
+                {'₹ ' + item?.vc_fees}
+              </CText>
+              <View style={styles.ph5}>
+                <CText type="r12" numberOfLines={2} color={colors.black}>
+                  {item?.vc_fees_dummy}
+                </CText>
+                <View style={localStyles.upperLineStyle} />
+              </View>
+            </View>
+          </View>
+        </View>
+        <View style={localStyles.bottomContainer}>
+          <View style={localStyles.starContainer}>
+            <RatingComponent
+              star={item?.rating}
+              style={localStyles.straStyle}
+            />
+            <CText
+              type="r10"
+              color={colors.textColor2}
+              style={localStyles.leftTextStyle}>
+              {item?.top_doc_review_per + ' reviews'}
+            </CText>
+          </View>
+          <View style={localStyles.bottomBtnContainer}>
+            <CButton
+              title={strings.viewProfile}
+              containerStyle={localStyles.viewProfileBtnStyle}
+              onPress={() => onPressDoctorProfile(item?.id)}
+              bgColor={colors.white}
+              color={colors.primary}
+              type="b12"
+            />
+            <CButton
+              title={strings.bookNow}
+              containerStyle={localStyles.bookNowBtnStyle}
+              onPress={() => {}}
+              bgColor={colors.success}
+              color={colors.white}
+              type="b12"
+            />
+          </View>
+        </View>
+      </View>
+    );
+  };
+
+  return (
+    <FlashList
+      data={specDoctorList}
+      renderItem={renderItem}
+      keyExtractor={(item, index) => index.toString()}
+      showsVerticalScrollIndicator={false}
+      estimatedItemSize={10}
+    />
+  );
+}
+
+const localStyles = StyleSheet.create({
+  cardMainContainer: {
+    ...styles.mh20,
+    ...styles.mv10,
+    ...styles.p10,
+    borderRadius: moderateScale(15),
+    borderColor: colors.bColor2,
+    borderWidth: moderateScale(1),
+  },
+  doctorImgStyle: {
+    height: getHeight(85),
+    width: moderateScale(82),
+    borderRadius: moderateScale(10),
+    resizeMode: 'cover',
+    borderWidth: moderateScale(1),
+    borderColor: colors.primary,
+    ...styles.mb5,
+  },
+  straStyle: {
+    height: moderateScale(10),
+    width: moderateScale(10),
+  },
+  leftContainer: {
+    ...styles.flexRow,
+    ...styles.justifyBetween,
+    ...styles.flex,
+  },
+  titleContainer: {
+    ...styles.ml10,
+    ...styles.flex,
+  },
+  leftTextStyle: {
+    ...styles.mt5,
+  },
+  starContainer: {
+    ...styles.center,
+    width: moderateScale(82),
+  },
+  bottomContainer: {
+    ...styles.rowSpaceBetween,
+    ...styles.mt5,
+  },
+  iconContainer: {
+    ...styles.rowCenter,
+    ...styles.mb10,
+  },
+  upperLineStyle: {
+    height: moderateScale(0.5),
+    backgroundColor: colors.black,
+    bottom: moderateScale(7),
+  },
+  bottomBtnContainer: {
+    ...styles.rowEnd,
+  },
+  viewProfileBtnStyle: {
+    ...styles.mr10,
+    ...styles.ph10,
+    borderWidth: moderateScale(1),
+    borderColor: colors.primary,
+    borderRadius: moderateScale(10),
+    height: getHeight(36),
+  },
+  bookNowBtnStyle: {
+    ...styles.ph10,
+    borderWidth: moderateScale(1),
+    borderColor: colors.success,
+    borderRadius: moderateScale(10),
+    height: getHeight(36),
+  },
+});
