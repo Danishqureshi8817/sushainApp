@@ -1,4 +1,4 @@
-import {StyleSheet, Image, View, FlatList} from 'react-native';
+import {StyleSheet, Image, View, FlatList,TouchableOpacity,Pressable} from 'react-native';
 import React from 'react';
 
 // local imports
@@ -7,6 +7,10 @@ import CText from '../common/CText';
 import {moderateScale} from '../../common/constants';
 import {Category} from '../../types/Types';
 import images from '../../assets/images';
+import { useNavigation } from '@react-navigation/native';
+import { StackNav } from '../../navigation/NavigationKeys';
+
+
 
 const data = [
   {
@@ -51,9 +55,14 @@ type props = {
 };
 
 const CategoryList = () => {
+
+  const navigation = useNavigation()
   const renderItem = ({item, index}: props) => {
     return (
-      <View style={localStyles.itemStyle}>
+      <Pressable onPress={()=>{navigation.navigate(StackNav.ConsultDoctor)}} >
+        <View style={localStyles.itemStyle}>
+
+        
         <Image source={item.img_mbl} style={localStyles.imgStyle} />
         <CText type="s12" style={styles.mv5} numberOfLines={2} align="center">
           {item.name}
@@ -65,7 +74,8 @@ const CategoryList = () => {
           align="center">
           {item.des}
         </CText>
-      </View>
+        </View>
+      </Pressable>
     );
   };
 

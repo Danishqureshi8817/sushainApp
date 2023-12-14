@@ -11,12 +11,19 @@ import CText from '../common/CText';
 import {RightArrow} from '../../assets/svgs';
 import BannerList from './BannerList';
 import {BASE_IMG_NEW_PATH} from '../../api/constant';
+import { useNavigation } from '@react-navigation/native';
+import { StackNav } from '../../navigation/NavigationKeys';
+
+
 
 export default function ExclusiveTherapy({bannerData}: any) {
+
+const navigation = useNavigation()
+
   console.log('bannerData', bannerData, BASE_IMG_NEW_PATH + bannerData);
   const RenderCardComponent = ({style, title, image}: any) => {
     return (
-      <TouchableOpacity style={[localStyles.subContainerStyle, style]}>
+      <TouchableOpacity onPress={()=>{navigation.navigate(StackNav.ClinicDoctorDetailCard)}} style={[localStyles.subContainerStyle, style]}>
         <View style={localStyles.titleTextStyle}>
           <Image source={image} style={localStyles.iconImageStyle} />
           <CText

@@ -22,6 +22,9 @@ import PatientsReview from '../containers/FindADoctor/PatientsReview';
 import PaymentScreen from '../containers/FindADoctor/PaymentScreen';
 import SelectTimeSlot from '../containers/FindADoctor/SelectTimeSlot';
 import ConsultDoctor from '../containers/InstantConsultation/ConsultDoctor'
+import ClinicDoctorDetailCard from '../containers/clinicConsultation/DoctorDetailCard'
+import ProductByCategories from '../containers/Medicines/ProductByCategories';
+
 
 export const TabRoute = {
   Home,
@@ -47,5 +50,7 @@ export const StackRoute = {
   PatientsReview,
   PaymentScreen,
   SelectTimeSlot,
-  ConsultDoctor
+  ConsultDoctor,
+  ClinicDoctorDetailCard,
+  ProductByCategories,
 };

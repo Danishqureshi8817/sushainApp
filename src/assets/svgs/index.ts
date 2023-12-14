@@ -70,6 +70,9 @@ import ServiceOfferdIcon from './serviceOfferdIcon.svg';
 import EveningSlotIcon from './eveningSlotIcon.svg';
 import MorningSlotIcon from './morningSlotIcon.svg';
 import DownArrowWhite from './downArrowWhite.svg'
+import MedicineBottle from './medicineBottle.svg'
+import CovidVirusResearch from './covidVirusResearch.svg'
+import HeartLightBlue from './heartLightBlue.svg'
 
 export {
   Home,
@@ -140,5 +143,8 @@ export {
   ServiceOfferdIcon,
   EveningSlotIcon,
   MorningSlotIcon,
-  DownArrowWhite
+  DownArrowWhite,
+  MedicineBottle,
+  CovidVirusResearch,
+  HeartLightBlue,
 };

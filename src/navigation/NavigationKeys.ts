@@ -23,4 +23,6 @@ export const StackNav = {
   PaymentScreen: 'PaymentScreen',
   SelectTimeSlot: 'SelectTimeSlot',
   ConsultDoctor:'ConsultDoctor',
+  ClinicDoctorDetailCard:'ClinicDoctorDetailCard',
+  ProductByCategories:'ProductByCategories',
 };

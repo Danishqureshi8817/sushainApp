@@ -1,4 +1,4 @@
-import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {Image, StyleSheet, TouchableOpacity, View,Text} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {FlashList} from '@shopify/flash-list';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
@@ -15,6 +15,10 @@ import {DoctorListAPI} from '../../api/homeApis';
 import {getHeight, moderateScale} from '../../common/constants';
 import {BASE_IMG_NEW_PATH} from '../../api/constant';
 import {StackNav} from '../../navigation/NavigationKeys';
+import images from '../../assets/images';
+import { responsiveHeight,responsiveFontSize,responsiveWidth } from 'react-native-responsive-dimensions';
+import typography from '../../themes/typography';
+
 
 export default function DoctorDetailCard({title}: any) {
   const [specDoctorList, setSpecDoctorList] = useState<any>();
@@ -115,6 +119,26 @@ export default function DoctorDetailCard({title}: any) {
     );
   };
 
+
+  const EmptyListMessage = () => {
+
+    return(
+       <View style={localStyles.notAvailableWrappeer} >
+         <Text style={localStyles.bareillSoonText} >{strings.wewillbeinBareillSoon}</Text>
+
+         <Text style={localStyles.globalExpertsOnlineText}  >{strings.connectWithOurGlobalExpertsOnline}</Text>
+
+         <Image source={images.doctorNotAvailable} style={localStyles.notAvailableImg} />
+
+         <TouchableOpacity style={localStyles.forVideoConsultationButtonWrapper}  >
+           <Text style={localStyles.forVideoConsultationButtonText}  >{strings.forVideoConsultationClickHere}</Text>{}
+         </TouchableOpacity>
+
+       </View>
+
+    )
+  }
+
   return (
     <FlashList
       data={specDoctorList}
@@ -122,6 +146,7 @@ export default function DoctorDetailCard({title}: any) {
       keyExtractor={(item, index) => index.toString()}
       showsVerticalScrollIndicator={false}
       estimatedItemSize={10}
+      ListEmptyComponent={EmptyListMessage}
     />
   );
 }
@@ -195,4 +220,39 @@ const localStyles = StyleSheet.create({
     borderRadius: moderateScale(10),
     height: getHeight(36),
   },
+  notAvailableWrappeer:{
+    alignItems:'center',
+    marginTop:responsiveHeight(5),
+    marginBottom:responsiveHeight(20)
+  },
+  bareillSoonText:{
+    ...typography.fontWeights.Medium,
+    color:'#ACADAA',
+    ...typography.fontSizes.f16,
+    marginBottom:responsiveHeight(1)
+  },
+  globalExpertsOnlineText:{
+    ...typography.fontWeights.Medium,
+    color:colors.black,
+    ...typography.fontSizes.f18,
+    textAlign:'center',
+    width:responsiveWidth(70)
+  },
+  notAvailableImg:{
+    resizeMode:'contain',
+    width:responsiveWidth(65),
+    height:responsiveHeight(25)
+  },
+ forVideoConsultationButtonWrapper:{
+    backgroundColor:colors.success,
+    paddingHorizontal:responsiveWidth(10),
+    paddingVertical:responsiveHeight(1.5),
+    borderRadius:responsiveWidth(3)
+  },
+  forVideoConsultationButtonText:{
+    ...typography.fontWeights.Bold,
+    color:colors.white,
+    ...typography.fontSizes.f14
+   
+  }
 });

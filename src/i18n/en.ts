@@ -160,4 +160,13 @@ export default {
   termsandConditionsCancelPolicy:'Terms and Conditions & Cancel Policy',
   totalFees : 'Total Fees:',
   payConsult:'Pay & Consult',
+  selectCity:'Select City',
+  talktoOurExpert:'Talk to Our Expert',
+  wewillbeinBareillSoon:'We will be in Bareilly Soon',
+  connectWithOurGlobalExpertsOnline:'Connect With Our Global Experts Online',
+  forVideoConsultationClickHere:'For Video Consultation, Click Here',
+  medicines:'Medicines',
+  medicinesbyHealthConcerns:'Medicines by Health Concerns',
+  bestSelling :'Best Selling ',
+  findProductsFromAyurvedaBrands:'Find Products From 100+ Ayurveda Brands',
 };

@@ -42,6 +42,11 @@ const tabRoute = () => {
         name={StackNav.CategoryDoctorList}
         component={StackRoute.CategoryDoctorList}
       />
+      <Stack.Screen
+        name={StackNav.ClinicDoctorDetailCard}
+        component={StackRoute.ClinicDoctorDetailCard}
+        
+      />
     </Stack.Navigator>
   );
 };
@@ -139,6 +144,8 @@ export default function TabBarNavigation({}) {
           headerShown: false,
           tabBarShowLabel: false,
           tabBarHideOnKeyboard: isAndroid ? true : false,
+         
+       
         }}
         height={moderateScale(75)}
         borderTopLeftRight
@@ -168,6 +175,7 @@ export default function TabBarNavigation({}) {
           position="LEFT"
           name={TabNav.FindADoctor}
           component={tabRoute}
+          
         />
         <Tab.Screen
           position="CIRCLE"

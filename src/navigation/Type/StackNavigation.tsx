@@ -43,6 +43,8 @@ export default function StackNavigation() {
         name={StackNav.ConsultDoctor}
         component={StackRoute.ConsultDoctor}
       />
+
+
       
       <Stack.Screen
         name={StackNav.TermsOfService}
@@ -67,6 +69,10 @@ export default function StackNavigation() {
       <Stack.Screen
         name={StackNav.SelectTimeSlot}
         component={StackRoute.SelectTimeSlot}
+      />
+       <Stack.Screen
+        name={StackNav.ProductByCategories}
+        component={StackRoute.ProductByCategories}
       />
     </Stack.Navigator>
   );
