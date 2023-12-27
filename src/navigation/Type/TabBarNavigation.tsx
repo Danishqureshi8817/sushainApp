@@ -51,6 +51,26 @@ const tabRoute = () => {
   );
 };
 
+const tabRouteMedicines = () => {
+  return (
+    <Stack.Navigator
+      screenOptions={{headerShown: false}}
+      initialRouteName={TabNav.Medicines}>
+      <Stack.Screen
+        name={TabNav.FindADoctor}
+        component={TabRoute.Medicines}
+      />
+      <Stack.Screen
+        name={StackNav.ProductByCategories}
+        component={StackRoute.ProductByCategories}
+      />
+     
+    </Stack.Navigator>
+  );
+};
+
+
+
 export default function TabBarNavigation({}) {
   const Tab = createBottomTabNavigator();
   interface TabTextProps {
@@ -185,7 +205,7 @@ export default function TabBarNavigation({}) {
         <Tab.Screen
           position="RIGHT"
           name={TabNav.Medicines}
-          component={TabRoute.Medicines}
+          component={tabRouteMedicines}
         />
         <Tab.Screen
           position="RIGHT"

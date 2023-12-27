@@ -116,7 +116,7 @@ const Medicines = () => {
             ...typography.fontWeights.SemiBold,
             fontSize: responsiveFontSize(1.6),
             textAlign: 'center',
-            marginTop: responsiveHeight(0.7),
+            marginTop: responsiveHeight(1),
           }}>
           {strings.findProductsFromAyurvedaBrands}
         </Text>

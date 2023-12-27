@@ -74,6 +74,21 @@ export default function StackNavigation() {
         name={StackNav.ProductByCategories}
         component={StackRoute.ProductByCategories}
       />
+
+      <Stack.Screen
+        name={StackNav.AppointmentBooked}
+        component={StackRoute.AppointmentBooked}
+      />
+
+      <Stack.Screen
+        name={StackNav.RescheduleAppointment}
+        component={StackRoute.RescheduleAppointment}
+      />
+
+      <Stack.Screen
+        name={StackNav.AppointmentCancellation}
+        component={StackRoute.AppointmentCancellation}
+      />
     </Stack.Navigator>
   );
 }

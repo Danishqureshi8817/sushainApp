@@ -46,4 +46,9 @@ export const colors = {
   dividerColor: '#888383',
   lightYellow: '#FFF4CB',
   dotColor: '#DED8D8',
+  lightwhite: '#F4F4F4',
+  lightwhite1: '#EFF2F2',
+  orenge: '#FF9B66',
+  creem:'#E8FFF5',
+  lightgray: '#EEEBEB',
 };

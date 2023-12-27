@@ -127,7 +127,7 @@ export default function SearchWithLikeComponent() {
         inputContainerStyle={localStyles.inputContainerStyle}
         inputBoxStyle={localStyles.inputBoxStyle}
         insideLeftIcon={searchIcon}
-        rightAccessory={rightAccessory}
+        // rightAccessory={rightAccessory}
         inputStyle={localStyles.inputStyle}
       />
       <TouchableOpacity
@@ -158,7 +158,7 @@ const localStyles = StyleSheet.create({
   searchContainer: {
     ...styles.rowSpaceBetween,
     ...styles.flexRow,
-    ...styles.ph20,
+    ...styles.ph15,
     ...styles.itemsCenter,
     position: 'relative',
     zIndex: 100,

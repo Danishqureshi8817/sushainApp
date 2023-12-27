@@ -73,7 +73,16 @@ import DownArrowWhite from './downArrowWhite.svg'
 import MedicineBottle from './medicineBottle.svg'
 import CovidVirusResearch from './covidVirusResearch.svg'
 import HeartLightBlue from './heartLightBlue.svg'
-
+import BottomIconWhite from './bottonIconlessthan.svg'
+import PrescriptionDrawerIconFilled from './PrescriptionDrawerIconFilled.svg'
+import ReportDeleteIcon from './reportDeleteIcon.svg'
+import ReportTick from './reportTick.svg'
+import ClockIconSmall from './clockIconSmall.svg'
+import CalendarIconSmall from './calendarIconSmall.svg'
+import IBSIcon from './IBSIcon.svg'
+import ColitisIcon from './colitisIcon.svg'
+import PepticUlcersIcon from './pepticUlcersIcon.svg'
+import GascidityIcon from './gascidityIcon.svg'
 export {
   Home,
   HomeSelected,
@@ -147,4 +156,16 @@ export {
   MedicineBottle,
   CovidVirusResearch,
   HeartLightBlue,
+  BottomIconWhite,
+  PrescriptionDrawerIconFilled,
+  ReportDeleteIcon,
+  ReportTick,
+  ClockIconSmall,
+  CalendarIconSmall,
+  IBSIcon,
+  GascidityIcon,
+  ColitisIcon,
+  PepticUlcersIcon,
+
+  
 };

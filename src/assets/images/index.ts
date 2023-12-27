@@ -42,4 +42,6 @@ export default {
   saveBig2: require('./saveBig2.png'),
   sushainPr1: require('./sushainPr1.png'),
   sushainPr2: require('./sushainPr2.png'),
+  booking: require('./booking.png'),
+  close: require('./close.png'),
 };
