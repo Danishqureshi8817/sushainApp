@@ -2,7 +2,7 @@
 import React from 'react';
 import {
   KeyboardAvoidingView,
-  ScrollView,
+
   KeyboardAvoidingViewProps,
   ViewStyle,
 } from 'react-native';
@@ -10,7 +10,7 @@ import {
 // Local Imports
 import { isIOS, moderateScale } from '../../common/constants';
 import { styles } from '../../themes';
-
+import { ScrollView } from 'react-native-virtualized-view';
 interface KeyBoardAvoidWrapperProps extends KeyboardAvoidingViewProps {
   containerStyle?: ViewStyle;
   contentContainerStyle?: ViewStyle;

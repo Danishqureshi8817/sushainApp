@@ -4,6 +4,7 @@ export const TabNav = {
   Medicines: 'Medicines',
   ContactUs: 'ContactUs',
   AskVirtualVaidya: 'Ask Virtual Vaidya',
+  
 };
 
 export const StackNav = {
@@ -25,4 +26,7 @@ export const StackNav = {
   ConsultDoctor:'ConsultDoctor',
   ClinicDoctorDetailCard:'ClinicDoctorDetailCard',
   ProductByCategories:'ProductByCategories',
+  AppointmentBooked:'AppointmentBooked',
+  AppointmentCancellation:'AppointmentCancellation',
+  RescheduleAppointment:'RescheduleAppointment',
 };

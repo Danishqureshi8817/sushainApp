@@ -125,7 +125,8 @@ const localStyles = StyleSheet.create({
     itemTitle:{
         color:colors.black,
       ...typography.fontWeights.Regular,
-      fontSize:responsiveFontSize(1.65)
+      fontSize:responsiveFontSize(1.65),
+      width:'90%'
     },
     bottomWrapper:{
       flexDirection:'row',

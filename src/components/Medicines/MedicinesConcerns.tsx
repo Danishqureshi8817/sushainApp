@@ -24,7 +24,7 @@ export default function MedicinesConcerns({title}: {title: string}) {
 
     
   return (
-    <TouchableOpacity onPress={()=>{navigation.navigate(StackNav.ProductByCategories)}} style={localStyles.rootContaienr}>
+    <TouchableOpacity onPress={()=>{navigation.navigate(StackNav.ProductByCategories,{categoryName:item?.title})}} style={localStyles.rootContaienr}>
       <View style={localStyles.imgOuterContaiener}>
         <Image source={item?.image} style={localStyles.imgStyle} />
       </View>
