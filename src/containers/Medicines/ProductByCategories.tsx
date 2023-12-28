@@ -11,6 +11,10 @@ import CHeader from '../../components/common/CHeader'
 import SearchWithLikeComponent from '../FindADoctor/SearchWithLikeComponent'
 import CButton from '../../components/common/CButton'
 import strings from '../../i18n/strings'
+import images from '../../assets/images'
+import KeyBoardAvoidWrapper from '../../components/common/KeyBoardAvoidWrapper'
+import ProductItemsByCategory from '../../components/Medicines/ProductItemsByCategory'
+import { productItemCategoryData } from '../../api/constant'
 
 
 
@@ -22,12 +26,16 @@ const ProductByCategories = ({ route, navigation }) => {
     
   return (
    <CSafeAreaView>
+    
       <CHeader
           title={categoryName}
           //   rightIcon={<RightText />}
         />
 
       <SearchWithLikeComponent/>
+      <KeyBoardAvoidWrapper>
+
+      
 
       <View style={{flexDirection:'row',alignItems:'center',alignSelf:'flex-end',paddingRight:responsiveWidth(4),marginTop:responsiveHeight(1),}} >
        <CButton
@@ -52,55 +60,87 @@ const ProductByCategories = ({ route, navigation }) => {
           />
 
         
+ 
       </View>
 
-      <View style={{flexDirection:'row',alignItems:'center',borderBottomWidth:1,gap:responsiveWidth(1),paddingHorizontal:responsiveWidth(3)}} >
-       
-       <View style={{backgroundColor:'#DBFAFF',paddingHorizontal:responsiveWidth(4.4),paddingVertical:responsiveHeight(2),borderRadius:responsiveWidth(10),marginBottom:responsiveHeight(3)}} >
-        <Text style={{color:colors.primary,   ...typography.fontSizes.f18,...typography.fontWeights.SemiBold,}} >All</Text>
-       </View>
+    
+
+      <View style={{flexDirection:'row',alignItems:'center',paddingHorizontal:responsiveWidth(3),gap:responsiveWidth(4),marginTop:responsiveHeight(2)}} >
        
        <View>
-       <View style={{backgroundColor:'#D9D9D94D',paddingHorizontal:responsiveWidth(2),paddingVertical:responsiveHeight(0.8),borderRadius:responsiveWidth(9),marginBottom:responsiveHeight(1)}} >
-        <IBSIcon/>
+       <TouchableOpacity activeOpacity={0.6} >
+       <View style={{backgroundColor:'#DBFAFF',paddingHorizontal:responsiveWidth(4.4),paddingVertical:responsiveHeight(2),borderRadius:responsiveWidth(10),marginBottom:responsiveHeight(1.5)}} >
+        <Text style={{color:colors.primary,   ...typography.fontSizes.f18,...typography.fontWeights.SemiBold,}} >All</Text>
+       </View>
+     </TouchableOpacity>
+       <Text></Text>
        </View>
 
+    
+       <View style={{flexDirection:'row',alignItems:'baseline',gap:responsiveWidth(4)}} >
+       <View>
+       <TouchableOpacity activeOpacity={0.6} >
+       <View style={{backgroundColor:'#D9D9D94D',paddingHorizontal:responsiveWidth(2.5),paddingVertical:responsiveHeight(1),borderRadius:responsiveWidth(9),marginBottom:responsiveHeight(1),}} >
+        <IBSIcon/>
+       </View>
+       </TouchableOpacity>
        <Text style={{color:colors.black,...typography.fontSizes.f12,...typography.fontWeights.Regular,textAlign:'center',}} >{strings.IBS}</Text>
 
        </View>
 
-       <View>
-       <View style={{backgroundColor:'#D9D9D94D',paddingHorizontal:responsiveWidth(3),paddingVertical:responsiveHeight(1.4),borderRadius:responsiveWidth(9),marginBottom:responsiveHeight(1)}} >
+       <View style={{}}>
+       <TouchableOpacity activeOpacity={0.6} >
+       <View style={{backgroundColor:'#D9D9D94D',paddingHorizontal:responsiveWidth(3.2),paddingVertical:responsiveHeight(1.6),borderRadius:responsiveWidth(9),marginBottom:responsiveHeight(1)}} >
         <ColitisIcon/>
        </View>
-
+       </TouchableOpacity>
        <Text style={{color:colors.black,...typography.fontSizes.f12,...typography.fontWeights.Regular,textAlign:'center',}} >{strings.colitis}</Text>
 
        </View>
 
        <View style={{alignItems:'center'}}  >
-       <View style={{backgroundColor:'#D9D9D94D',paddingHorizontal:responsiveWidth(3),paddingVertical:responsiveHeight(1.3),borderRadius:responsiveWidth(9),marginBottom:responsiveHeight(1)}} >
+        <TouchableOpacity activeOpacity={0.6} >
+       <View style={{backgroundColor:'#D9D9D94D',paddingHorizontal:responsiveWidth(2.9),paddingVertical:responsiveHeight(1.35),borderRadius:responsiveWidth(9),marginBottom:responsiveHeight(1)}} >
         <GascidityIcon/>
        </View>
+       </TouchableOpacity>
 
-       <Text style={{color:colors.black,...typography.fontSizes.f12,...typography.fontWeights.Regular,textAlign:'center',}} >{strings.gasAcidity}</Text>
+       <Text style={{color:colors.black,...typography.fontSizes.f12,...typography.fontWeights.Regular,textAlign:'center',width:responsiveWidth(11)}} >{strings.gasAcidity}</Text>
 
        </View>
 
 
        <View style={{alignItems:'center'}} >
+       <TouchableOpacity activeOpacity={0.6} >
        <View style={{backgroundColor:'#D9D9D94D',paddingHorizontal:responsiveWidth(3.8),paddingVertical:responsiveHeight(1.6),borderRadius:responsiveWidth(9),marginBottom:responsiveHeight(1)}} >
         <PepticUlcersIcon/>
        </View>
+       </TouchableOpacity>
 
-       <Text style={{color:colors.black,...typography.fontSizes.f12,...typography.fontWeights.Regular,textAlign:'center',}} >{strings.pepticulcers}</Text>
+       <Text style={{color:colors.black,...typography.fontSizes.f12,...typography.fontWeights.Regular,textAlign:'center',width:responsiveWidth(10)}} >{strings.pepticulcers}</Text>
 
        </View>
        
-
+       </View>
        
 
       </View>
+
+      <TouchableOpacity style={localStyles.bannerContaienr}>
+          <Image
+            source={images.productByCategoryBanner}
+            style={localStyles.bannerImageStyle}
+            resizeMode="cover"
+          />
+        </TouchableOpacity>
+
+          <ProductItemsByCategory data={productItemCategoryData} bestSeller={true} />
+
+       
+
+
+
+        </KeyBoardAvoidWrapper>
 
 
         
@@ -130,6 +170,17 @@ const localStyles = StyleSheet.create({
         borderWidth: moderateScale(1),
         borderColor: colors.bColor2,
         height: getHeight(28),
+        borderRadius: moderateScale(10),
+      },
+      bannerContaienr: {
+        ...styles.center,
+        ...styles.mh20,
+        marginTop:responsiveHeight(2)
+      },
+      bannerImageStyle: {
+        width: '100%',
+        height: moderateScale(140),
+        ...styles.mv10,
         borderRadius: moderateScale(10),
       },
 

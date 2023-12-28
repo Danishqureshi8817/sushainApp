@@ -179,6 +179,52 @@ export const medicinesConcernsData = [
 
 ];
 
+export const productItemCategoryData = [
+  {
+    id: 1,
+    title: 'Ulsiowin Tablets By Skm',
+    decp:'1 Pack of 100 Tablet in Bottle',
+    price:'132',
+    image: images.productByCategory1,
+  },
+  {
+    id: 2,
+    title: 'Pilex Tablet By Himalaya',
+    decp:'1 Pack of 60 Tablet in Bottle',
+    price:'165',
+    image: images.productByCategory2,
+  },
+  {
+    id: 3,
+    title: 'Krimi Kuthar Ras Baidhyanath',
+    decp:'1 Pack of 80 Tablet in Bottle',
+    price:'194',
+    image: images.productByCategory3,
+  },
+  {
+    id: 4,
+    title: 'Gastrina 60tab By Dabur',
+    decp:'1 Pack of 100 Tablet in Bottle',
+    price:'75',
+    image: images.productByCategory4,
+  },
+  {
+    id: 5,
+    title: 'Pittashekhar Rasa By Dhootapapeshwar',
+    decp:'1 Pack of 100 Tablet in Bottle',
+    price:'740',
+    image: images.productByCategory5,
+  },
+  {
+    id: 6,
+    title: 'Digoewin Tablets By Skm',
+    decp:'1 Pack of 100 Tablet in Bottle',
+    price:'171',
+    image: images.productByCategory6,
+  },
+  
+
+];
 export const genderData = [
   {label: 'Male', value: 'Male'},
   {label: 'Female', value: 'Female'},
