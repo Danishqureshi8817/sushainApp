@@ -83,6 +83,12 @@ import IBSIcon from './IBSIcon.svg'
 import ColitisIcon from './colitisIcon.svg'
 import PepticUlcersIcon from './pepticUlcersIcon.svg'
 import GascidityIcon from './gascidityIcon.svg'
+import CartIconWhite from './cartIconWhite.svg'
+import CrossBottomTab from './crossBottomTab.svg'
+import ReloadBottomTab from './reloadBottomTab.svg'
+import TickFilterSelected from './tickFilterSelected.svg'
+import TickFilterUnselected from './tickFilterUnselected.svg'
+
 export {
   Home,
   HomeSelected,
@@ -166,6 +172,10 @@ export {
   GascidityIcon,
   ColitisIcon,
   PepticUlcersIcon,
-
+  CartIconWhite,
+  CrossBottomTab,
+  ReloadBottomTab,
+  TickFilterSelected,
+  TickFilterUnselected,
   
 };

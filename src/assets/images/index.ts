@@ -44,4 +44,16 @@ export default {
   sushainPr2: require('./sushainPr2.png'),
   booking: require('./booking.png'),
   close: require('./close.png'),
+  IBSIcon: require('./IBSIcon.png'),
+  colitisIcon: require('./colitisIcon.png'),
+  pepticUlcersIcon: require('./pepticUlcersIcon.png'),
+  gasacidityIcon: require('./gasacidityIcon.png'),
+
+  productByCategoryBanner: require('./productByCategoryBanner.png'),
+  productByCategory1: require('./productByCategory1.png'),
+  productByCategory2: require('./productByCategory2.png'),
+  productByCategory3: require('./productByCategory3.png'),
+  productByCategory4: require('./productByCategory4.png'),
+  productByCategory5: require('./productByCategory5.png'),
+  productByCategory6: require('./productByCategory6.png'),
 };
