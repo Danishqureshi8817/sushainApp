@@ -12,6 +12,9 @@ import { HeartLightBlue } from '../../assets/svgs';
 import { moderateScale } from '../../common/constants';
 import images from '../../assets/images';
 import { color } from 'react-native-reanimated';
+import { Pressable } from 'react-native';
+import { StackNav } from '../../navigation/NavigationKeys';
+
 
 const ProductItemsByCategory = ({title,data,bestSeller,multipleAddButton,setMultipleAddButton}: {title: string,data:any,bestSeller:boolean}) => {
 
@@ -24,6 +27,7 @@ const ProductItemsByCategory = ({title,data,bestSeller,multipleAddButton,setMult
            console.log(item);
            
         return(
+          <Pressable onPress={()=>{navigation.navigate(StackNav.ProductDetail)}} >
             <View style={[localStyles.cardMainContainer,]} >
                
                <View style={{flexDirection:'row',alignItems:'center',justifyContent:'space-between',marginHorizontal:responsiveWidth(1.5),marginTop:responsiveHeight(0),alignSelf:bestSeller?'none':'flex-end'}}>
@@ -78,6 +82,7 @@ const ProductItemsByCategory = ({title,data,bestSeller,multipleAddButton,setMult
 
           
             </View>
+            </Pressable>
         )
     }
 

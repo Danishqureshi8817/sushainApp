@@ -21,6 +21,7 @@ import Search from './search.svg';
 import Notification from './notification.svg';
 import User from './user.svg';
 import Cart from './cart.svg';
+import CartBlack from './cartBlack.svg';
 import Heart from './heart.svg';
 import Mic from './mic.svg';
 import ThumbIcon from './thumbIcon.svg';
@@ -63,6 +64,7 @@ import FilterIcon from './filterIcon.svg';
 import SortIcon from './sortIcon.svg';
 import LikeIcon from './likeIcon.svg';
 import ShareIcon from './shareIcon.svg';
+import ShareIconBlack from './shareBlack.svg';
 import BlackShareIcon from './blackShareIcon.svg';
 import ChatIcon from './chatIcon.svg';
 import RegistrationIcon from './registrationIcon.svg';
@@ -177,5 +179,7 @@ export {
   ReloadBottomTab,
   TickFilterSelected,
   TickFilterUnselected,
-  
+  ShareIconBlack,
+  CartBlack,
+
 };

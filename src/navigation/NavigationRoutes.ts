@@ -24,6 +24,7 @@ import SelectTimeSlot from '../containers/FindADoctor/SelectTimeSlot';
 import ConsultDoctor from '../containers/InstantConsultation/ConsultDoctor'
 import ClinicDoctorDetailCard from '../containers/clinicConsultation/DoctorDetailCard'
 import ProductByCategories from '../containers/Medicines/ProductByCategories';
+import ProductDetail from '../containers/Medicines/ProductDetail';
 import AppointmentBooked from '../containers/FindADoctor/AppointmentBooked';
 import RescheduleAppointment from '../containers/FindADoctor/RescheduleAppointment';
 import AppointmentCancellation from '../containers/FindADoctor/AppointmentCancellation';
@@ -60,4 +61,7 @@ export const StackRoute = {
   AppointmentBooked,
   RescheduleAppointment,
   AppointmentCancellation,
+  ProductDetail,
+
+  
 };

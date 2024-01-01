@@ -26,6 +26,7 @@ export const StackNav = {
   ConsultDoctor:'ConsultDoctor',
   ClinicDoctorDetailCard:'ClinicDoctorDetailCard',
   ProductByCategories:'ProductByCategories',
+  ProductDetail:'ProductDetail',
   AppointmentBooked:'AppointmentBooked',
   AppointmentCancellation:'AppointmentCancellation',
   RescheduleAppointment:'RescheduleAppointment',

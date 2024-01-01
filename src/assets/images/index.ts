@@ -56,4 +56,5 @@ export default {
   productByCategory4: require('./productByCategory4.png'),
   productByCategory5: require('./productByCategory5.png'),
   productByCategory6: require('./productByCategory6.png'),
+  productSlider: require('./productSlider.png'),
 };
