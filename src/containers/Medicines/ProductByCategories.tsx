@@ -19,6 +19,7 @@ import { productItemCategoryData } from '../../api/constant'
 import KeyBoardAvoidWrapper from '../../components/common/KeyBoardAvoidWrapper'
 import RBSheet from "react-native-raw-bottom-sheet";
 import { FlashList } from '@shopify/flash-list'
+import { StackNav } from '../../navigation/NavigationKeys'
 
 
 
@@ -124,7 +125,7 @@ const ProductByCategories = ({ route, navigation }) => {
       <View style={{flexDirection:'row',alignItems:'center',alignSelf:'flex-end',paddingRight:responsiveWidth(4),marginTop:responsiveHeight(1),}} >
        <CButton
             title={strings.sort}
-            onPress={() => {refRBSheet.current.open()}}
+            onPress={() => {StackNav.ProductDetail}}
             containerStyle={localStyles.btnContainerStyle}
             bgColor={colors.white}
             color={colors.black}

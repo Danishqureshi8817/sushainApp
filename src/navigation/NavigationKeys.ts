@@ -30,4 +30,9 @@ export const StackNav = {
   AppointmentBooked:'AppointmentBooked',
   AppointmentCancellation:'AppointmentCancellation',
   RescheduleAppointment:'RescheduleAppointment',
+  ProductsReview:'ProductsReview',
+  MedicineCart:'MedicineCart',
+  MedicineAddress:'MedicineAddress',
+  MedicineSummery:'MedicineSummery'
+  
 };

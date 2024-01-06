@@ -28,6 +28,10 @@ import ProductDetail from '../containers/Medicines/ProductDetail';
 import AppointmentBooked from '../containers/FindADoctor/AppointmentBooked';
 import RescheduleAppointment from '../containers/FindADoctor/RescheduleAppointment';
 import AppointmentCancellation from '../containers/FindADoctor/AppointmentCancellation';
+import ProductsReview from '../containers/Medicines/ProductsReview';
+import MedicineCart from '../containers/Medicines/MedicineCart';
+import MedicineAddress from '../containers/Medicines/MedicineAddress';
+import MedicineSummery from '../containers/Medicines/MedicineSummery';
 
 
 
@@ -62,6 +66,9 @@ export const StackRoute = {
   RescheduleAppointment,
   AppointmentCancellation,
   ProductDetail,
+  ProductsReview,
+  MedicineCart,
+  MedicineAddress,
+  MedicineSummery,
 
-  
 };

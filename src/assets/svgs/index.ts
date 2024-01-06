@@ -90,6 +90,24 @@ import CrossBottomTab from './crossBottomTab.svg'
 import ReloadBottomTab from './reloadBottomTab.svg'
 import TickFilterSelected from './tickFilterSelected.svg'
 import TickFilterUnselected from './tickFilterUnselected.svg'
+import StarUnFilled from './starUnFilled.svg'
+import StarFilled from './starFilled.svg'
+import BagBlue from './bagBlue.svg'
+import DownArrowBlack from './DownArrowBlack.svg'
+import TruckIcon from './TruckIcon.svg'
+import CashIcon from './CashIcon.svg'
+import GreenSmaalTick from './GreenSmaalTick.svg'
+import WorkspaceTrusted from './WorkspaceTrusted.svg'
+import RecurringPayment from './RecurringPayment.svg'
+import Genuine from './Genuine.svg'
+import GreenTruck from './GreenTruck.svg'
+import GreenCouponPercent from './greenCouponPercent.svg'
+import CouponPercent from './couponPercent.svg'
+import ShippingTrack from './shippingTrack.svg'
+import RightArrowBlack from './RightArrowBlack.svg'
+import PhoneIcon from './phoneIcon.svg'
+import BillBigIconGreen from './billBigIconGreen.svg'
+import GreenDot from './greenDot.svg'
 
 export {
   Home,
@@ -181,5 +199,24 @@ export {
   TickFilterUnselected,
   ShareIconBlack,
   CartBlack,
+  StarUnFilled,
+  StarFilled,
+  BagBlue,
+  DownArrowBlack,
+  TruckIcon,
+  CashIcon,
+  GreenSmaalTick,
+  GreenTruck,
+  WorkspaceTrusted,
+  RecurringPayment,
+  Genuine,
+  ShippingTrack,
+  CouponPercent,
+  GreenCouponPercent,
+  RightArrowBlack,
+  PhoneIcon,
+  BillBigIconGreen,
+  GreenDot,
+
 
 };

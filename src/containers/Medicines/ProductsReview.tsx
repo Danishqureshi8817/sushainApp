@@ -12,7 +12,8 @@ import CText from '../../components/common/CText';
 import RatingComponent from '../../components/HomeComponent/RatingComponent';
 import {TIME_FORMATE, TIME_YMD, moderateScale} from '../../common/constants';
 import SubHeader from '../../components/common/CommonComponent/SubHeader';
-import {BASE_IMG_NEW_PATH} from '../../api/constant';
+import {BASE_IMG_NEW_PATH, productReview} from '../../api/constant';
+import images from '../../assets/images';
 
 interface Props {
   route: any;
@@ -20,7 +21,7 @@ interface Props {
 }
 
 const RenderReviewItem = ({item}: any) => {
-  const formattedDate = moment(item?.time, TIME_FORMATE).format(TIME_YMD);
+  // const formattedDate = moment(item?.time, TIME_FORMATE).format(TIME_YMD);
   return (
     <View style={localStyles.reviewContainerStyle}>
       <View style={styles.rowSpaceBetween}>
@@ -36,7 +37,8 @@ const RenderReviewItem = ({item}: any) => {
                 {item?.cust_name}
               </CText>
               <CText type="r10" style={styles.pl10} numberOfLines={1}>
-                {moment(formattedDate, TIME_YMD).fromNow()}
+                {/* {moment(formattedDate, TIME_YMD).fromNow()} */}
+                {'2 Days ago'}
               </CText>
             </View>
             <RatingComponent
@@ -62,11 +64,11 @@ const RenderHeaderComponent = ({data}: any) => {
       <View style={localStyles.rootContainer}>
         <View style={styles.center}>
           <Image
-            source={{uri: BASE_IMG_NEW_PATH + data?.doctorImage}}
-            style={localStyles.doctorImgStyle}
+            source={images.productSlider}
+            style={localStyles.productImgStyle}
           />
           <CText type="s10" style={styles.mt5} numberOfLines={1}>
-            {data?.doctorName}
+            {'Aloe Cucumber Face Wash'}
           </CText>
         </View>
         <View style={styles.center}>
@@ -74,14 +76,14 @@ const RenderHeaderComponent = ({data}: any) => {
             {strings.overallRating}
           </CText>
           <CText type="b30" numberOfLines={1} style={styles.mt5}>
-            {data?.doctorRating}
+            {4.0}
           </CText>
           <RatingComponent
-            star={data?.doctorRating}
+            star={4}
             style={localStyles.straStyle}
           />
           <CText type="s12" numberOfLines={1}>
-            {data?.doctorReview}
+            {4}
           </CText>
         </View>
       </View>
@@ -90,13 +92,13 @@ const RenderHeaderComponent = ({data}: any) => {
   );
 };
 
-export default function PatientsReview({route, navigation}: Props) {
+export default function ProductsReview({route, navigation}: Props) {
   const data = route?.params?.data;
   return (
     <CSafeAreaView>
-      <CHeader title={strings.patientsReviews} />
+      <CHeader title={'Reviews'} />
       <FlashList
-        data={data?.reviewData}
+        data={productReview}
         renderItem={RenderReviewItem}
         keyExtractor={(item, index) => index.toString()}
         showsVerticalScrollIndicator={false}
@@ -117,10 +119,10 @@ const localStyles = StyleSheet.create({
     ...styles.shadowStyle,
     ...styles.rowSpaceAround,
   },
-  doctorImgStyle: {
+  productImgStyle: {
     height: moderateScale(80),
     width: moderateScale(120),
-    resizeMode: 'cover',
+    resizeMode: 'contain',
     borderRadius: moderateScale(10),
     borderWidth: moderateScale(1),
     borderColor: colors.primary,

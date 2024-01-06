@@ -91,9 +91,25 @@ export default function StackNavigation() {
       />
 
       <Stack.Screen
-        name={StackNav.ProductDetail}
-        component={StackRoute.ProductDetail}
+        name={StackNav.ProductsReview}
+        component={StackRoute.ProductsReview}
       />
+
+      <Stack.Screen
+        name={StackNav.MedicineCart}
+        component={StackRoute.MedicineCart}
+      /> 
+
+      <Stack.Screen
+        name={StackNav.MedicineAddress}
+        component={StackRoute.MedicineAddress}
+      /> 
+
+      <Stack.Screen
+        name={StackNav.MedicineSummery}
+        component={StackRoute.MedicineSummery}
+      /> 
+
     </Stack.Navigator>
   );
 }

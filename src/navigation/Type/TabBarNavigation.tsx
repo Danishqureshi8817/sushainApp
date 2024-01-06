@@ -64,6 +64,10 @@ const tabRouteMedicines = () => {
         name={StackNav.ProductByCategories}
         component={StackRoute.ProductByCategories}
       />
+      <Stack.Screen
+        name={StackNav.ProductDetail}
+        component={StackRoute.ProductDetail}
+      />
      
     </Stack.Navigator>
   );
