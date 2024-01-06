@@ -21,6 +21,7 @@ import Search from './search.svg';
 import Notification from './notification.svg';
 import User from './user.svg';
 import Cart from './cart.svg';
+import CartBlack from './cartBlack.svg';
 import Heart from './heart.svg';
 import Mic from './mic.svg';
 import ThumbIcon from './thumbIcon.svg';
@@ -63,6 +64,7 @@ import FilterIcon from './filterIcon.svg';
 import SortIcon from './sortIcon.svg';
 import LikeIcon from './likeIcon.svg';
 import ShareIcon from './shareIcon.svg';
+import ShareIconBlack from './shareBlack.svg';
 import BlackShareIcon from './blackShareIcon.svg';
 import ChatIcon from './chatIcon.svg';
 import RegistrationIcon from './registrationIcon.svg';
@@ -83,6 +85,30 @@ import IBSIcon from './IBSIcon.svg'
 import ColitisIcon from './colitisIcon.svg'
 import PepticUlcersIcon from './pepticUlcersIcon.svg'
 import GascidityIcon from './gascidityIcon.svg'
+import CartIconWhite from './cartIconWhite.svg'
+import CrossBottomTab from './crossBottomTab.svg'
+import ReloadBottomTab from './reloadBottomTab.svg'
+import TickFilterSelected from './tickFilterSelected.svg'
+import TickFilterUnselected from './tickFilterUnselected.svg'
+import StarUnFilled from './starUnFilled.svg'
+import StarFilled from './starFilled.svg'
+import BagBlue from './bagBlue.svg'
+import DownArrowBlack from './DownArrowBlack.svg'
+import TruckIcon from './TruckIcon.svg'
+import CashIcon from './CashIcon.svg'
+import GreenSmaalTick from './GreenSmaalTick.svg'
+import WorkspaceTrusted from './WorkspaceTrusted.svg'
+import RecurringPayment from './RecurringPayment.svg'
+import Genuine from './Genuine.svg'
+import GreenTruck from './GreenTruck.svg'
+import GreenCouponPercent from './greenCouponPercent.svg'
+import CouponPercent from './couponPercent.svg'
+import ShippingTrack from './shippingTrack.svg'
+import RightArrowBlack from './RightArrowBlack.svg'
+import PhoneIcon from './phoneIcon.svg'
+import BillBigIconGreen from './billBigIconGreen.svg'
+import GreenDot from './greenDot.svg'
+
 export {
   Home,
   HomeSelected,
@@ -166,6 +192,31 @@ export {
   GascidityIcon,
   ColitisIcon,
   PepticUlcersIcon,
+  CartIconWhite,
+  CrossBottomTab,
+  ReloadBottomTab,
+  TickFilterSelected,
+  TickFilterUnselected,
+  ShareIconBlack,
+  CartBlack,
+  StarUnFilled,
+  StarFilled,
+  BagBlue,
+  DownArrowBlack,
+  TruckIcon,
+  CashIcon,
+  GreenSmaalTick,
+  GreenTruck,
+  WorkspaceTrusted,
+  RecurringPayment,
+  Genuine,
+  ShippingTrack,
+  CouponPercent,
+  GreenCouponPercent,
+  RightArrowBlack,
+  PhoneIcon,
+  BillBigIconGreen,
+  GreenDot,
 
-  
+
 };

@@ -1,7 +1,7 @@
-import React,{useEffect} from 'react';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {StackRoute} from '../NavigationRoutes';
-import {StackNav} from '../NavigationKeys';
+import React, { useEffect } from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StackRoute } from '../NavigationRoutes';
+import { StackNav } from '../NavigationKeys';
 import { getLng } from '../../i18n/changeLng';
 import strings from '../../i18n/strings';
 
@@ -12,13 +12,13 @@ export default function StackNavigation() {
   useEffect(() => {
     selectedLng()
   }, [])
-  
+
   const selectedLng = async () => {
     const lngData = await getLng()
-    if(!!lngData){
+    if (!!lngData) {
       strings.setLanguage(lngData)
     }
-    console.log("Drawer LOggggggg",lngData);
+    console.log("Drawer LOggggggg", lngData);
 
   }
 
@@ -45,7 +45,7 @@ export default function StackNavigation() {
       />
 
 
-      
+
       <Stack.Screen
         name={StackNav.TermsOfService}
         component={StackRoute.TermsOfService}
@@ -70,7 +70,7 @@ export default function StackNavigation() {
         name={StackNav.SelectTimeSlot}
         component={StackRoute.SelectTimeSlot}
       />
-       <Stack.Screen
+      <Stack.Screen
         name={StackNav.ProductByCategories}
         component={StackRoute.ProductByCategories}
       />
@@ -89,6 +89,27 @@ export default function StackNavigation() {
         name={StackNav.AppointmentCancellation}
         component={StackRoute.AppointmentCancellation}
       />
+
+      <Stack.Screen
+        name={StackNav.ProductsReview}
+        component={StackRoute.ProductsReview}
+      />
+
+      <Stack.Screen
+        name={StackNav.MedicineCart}
+        component={StackRoute.MedicineCart}
+      /> 
+
+      <Stack.Screen
+        name={StackNav.MedicineAddress}
+        component={StackRoute.MedicineAddress}
+      /> 
+
+      <Stack.Screen
+        name={StackNav.MedicineSummery}
+        component={StackRoute.MedicineSummery}
+      /> 
+
     </Stack.Navigator>
   );
 }
