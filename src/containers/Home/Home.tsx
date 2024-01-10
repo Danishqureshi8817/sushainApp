@@ -6,9 +6,26 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {FlashList} from '@shopify/flash-list';
 
 // local imports
+const CSafeAreaView = React.lazy(() => import('../../components/common/CSafeAreaView'))
+const CText = React.lazy(() => import('../../components/common/CText'))
+const CInput = React.lazy(() => import('../../components/common/CInput'))
+const BannerList = React.lazy(() => import('../../components/HomeComponent/BannerList'))
+const CategoryList = React.lazy(() => import('../../components/HomeComponent/CategoryList'))
+const KeyBoardAvoidWrapper = React.lazy(() => import('../../components/common/KeyBoardAvoidWrapper'))
+const DoctorSpecialities = React.lazy(() => import('../../components/HomeComponent/DoctorSpecialities'))
+const ShopCategory = React.lazy(() => import('../../components/HomeComponent/ShopCategory'))
+const AyurvedicProducts = React.lazy(() => import('../../components/HomeComponent/AyurvedicProducts'))
+const ExclusiveTherapy = React.lazy(() => import('../../components/HomeComponent/ExclusiveTherapy'))
+const HonestReviews = React.lazy(() => import('../../components/HomeComponent/HonestReviews'))
+const FeaturedIn = React.lazy(() => import('../../components/HomeComponent/FeaturedIn'))
+const UpcomingAppointment = React.lazy(() => import('../../components/HomeComponent/UpcomingAppointment'))
+const FrequentlyBoughtProducts = React.lazy(() => import('../../components/HomeComponent/FrequentlyBoughtProducts'))
+// const CDebounce = React.lazy(() => import('../../components/common/CDebounce'))
+
+
 import {colors, styles} from '../../themes';
 import typography from '../../themes/typography';
-import CSafeAreaView from '../../components/common/CSafeAreaView';
+// import CSafeAreaView from '../../components/common/CSafeAreaView';
 import {
   ArrowDown,
   Cart,
@@ -21,21 +38,21 @@ import {
   Search,
   User,
 } from '../../assets/svgs';
-import CText from '../../components/common/CText';
+// import CText from '../../components/common/CText';
 import strings from '../../i18n/strings';
 import {getHeight, moderateScale} from '../../common/constants';
-import CInput from '../../components/common/CInput';
-import BannerList from '../../components/HomeComponent/BannerList';
-import CategoryList from '../../components/HomeComponent/CategoryList';
-import KeyBoardAvoidWrapper from '../../components/common/KeyBoardAvoidWrapper';
-import DoctorSpecialities from '../../components/HomeComponent/DoctorSpecialities';
-import ShopCategory from '../../components/HomeComponent/ShopCategory';
-import AyurvedicProducts from '../../components/HomeComponent/AyurvedicProducts';
-import ExclusiveTherapy from '../../components/HomeComponent/ExclusiveTherapy';
-import HonestReviews from '../../components/HomeComponent/HonestReviews';
-import FeaturedIn from '../../components/HomeComponent/FeaturedIn';
-import UpcomingAppointment from '../../components/HomeComponent/UpcomingAppointment';
-import FrequentlyBoughtProducts from '../../components/HomeComponent/FrequentlyBoughtProducts';
+// import CInput from '../../components/common/CInput';
+// import BannerList from '../../components/HomeComponent/BannerList';
+// import CategoryList from '../../components/HomeComponent/CategoryList';
+// import KeyBoardAvoidWrapper from '../../components/common/KeyBoardAvoidWrapper';
+// import DoctorSpecialities from '../../components/HomeComponent/DoctorSpecialities';
+// import ShopCategory from '../../components/HomeComponent/ShopCategory';
+// import AyurvedicProducts from '../../components/HomeComponent/AyurvedicProducts';
+// import ExclusiveTherapy from '../../components/HomeComponent/ExclusiveTherapy';
+// import HonestReviews from '../../components/HomeComponent/HonestReviews';
+// import FeaturedIn from '../../components/HomeComponent/FeaturedIn';
+// import UpcomingAppointment from '../../components/HomeComponent/UpcomingAppointment';
+// import FrequentlyBoughtProducts from '../../components/HomeComponent/FrequentlyBoughtProducts';
 import {HomePageAPI, SearchAPI} from '../../api/homeApis';
 import CDebounce from '../../components/common/CDebounce';
 import { getLng } from '../../i18n/changeLng';

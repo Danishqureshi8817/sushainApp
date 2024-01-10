@@ -2,19 +2,29 @@ import {ScrollView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import React, {useEffect} from 'react';
 
 // local imports
-import CSafeAreaView from '../../components/common/CSafeAreaView';
-import ADoctorHealthIssue from '../../components/DoctorComponent/ADoctorHealthIssue';
+const CSafeAreaView = React.lazy(() => import('../../components/common/CSafeAreaView'))
+const ADoctorHealthIssue = React.lazy(() => import('../../components/DoctorComponent/ADoctorHealthIssue'))
+const TopDoctor = React.lazy(() => import('../../components/DoctorComponent/TopDoctor'))
+const DoctorCategoryComponent = React.lazy(() => import('../../components/DoctorComponent/DoctorCategoryComponent'))
+const CText = React.lazy(() => import('../../components/common/CText'))
+const TopBannerFindDoctor = React.lazy(() => import('../../components/DoctorComponent/TopBannerFindDoctor'))
+const CHeader = React.lazy(() => import('../../components/common/CHeader'))
+const SearchWithLikeComponent = React.lazy(() => import('./SearchWithLikeComponent'))
+
+
+// import CSafeAreaView from '../../components/common/CSafeAreaView';
+// import ADoctorHealthIssue from '../../components/DoctorComponent/ADoctorHealthIssue';
 import {colors, styles} from '../../themes';
-import TopDoctor from '../../components/DoctorComponent/TopDoctor';
-import DoctorCategoryComponent from '../../components/DoctorComponent/DoctorCategoryComponent';
+// import TopDoctor from '../../components/DoctorComponent/TopDoctor';
+// import DoctorCategoryComponent from '../../components/DoctorComponent/DoctorCategoryComponent';
 import strings from '../../i18n/strings';
-import CText from '../../components/common/CText';
+// import CText from '../../components/common/CText';
 import {moderateScale} from '../../common/constants';
 import {BrandIcon, DoctorIcon, ReviewsIcon, UserIcon} from '../../assets/svgs';
-import TopBannerFindDoctor from '../../components/DoctorComponent/TopBannerFindDoctor';
+// import TopBannerFindDoctor from '../../components/DoctorComponent/TopBannerFindDoctor';
 import {findDoctorHomeAPI} from '../../api/FindDoctor';
-import CHeader from '../../components/common/CHeader';
-import SearchWithLikeComponent from './SearchWithLikeComponent';
+// import CHeader from '../../components/common/CHeader';
+// import SearchWithLikeComponent from './SearchWithLikeComponent';
 
 const BottomContainer = ({icon, title}: any) => {
   return (

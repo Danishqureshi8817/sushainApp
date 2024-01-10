@@ -1,28 +1,24 @@
-import {
-  Image,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image,ScrollView, StyleSheet,TouchableOpacity,View,} from 'react-native';
 import React from 'react';
 
 // local imports
-import CSafeAreaView from '../../components/common/CSafeAreaView';
-import CHeader from '../../components/common/CHeader';
+const CSafeAreaView = React.lazy(() => import('../../components/common/CSafeAreaView'))
+const CHeader = React.lazy(() => import('../../components/common/CHeader'))
+const CText = React.lazy(() => import('../../components/common/CText'))
+const CButton = React.lazy(() => import('../../components/common/CButton'))
+const DoctorDetailCard = React.lazy(() => import('./DoctorDetailCard'))
+
+
+// import CSafeAreaView from '../../components/common/CSafeAreaView';
+// import CHeader from '../../components/common/CHeader';
 import images from '../../assets/images';
 import {getHeight, moderateScale} from '../../common/constants';
 import {colors, styles} from '../../themes';
-import {
-  DigitalPrecereption,
-  FilterIcon,
-  FreeFollowUp,
-  SortIcon,
-} from '../../assets/svgs';
-import CText from '../../components/common/CText';
-import CButton from '../../components/common/CButton';
+import {DigitalPrecereption,FilterIcon,FreeFollowUp,SortIcon,} from '../../assets/svgs';
+// import CText from '../../components/common/CText';
+// import CButton from '../../components/common/CButton';
 import strings from '../../i18n/strings';
-import DoctorDetailCard from './DoctorDetailCard';
+// import DoctorDetailCard from './DoctorDetailCard';
 
 interface Props {
   route: any;

@@ -5,6 +5,7 @@ import {
   Image,
   StyleProp,
   ViewStyle,
+  TextInput,
 } from 'react-native';
 import React, {useRef, useState} from 'react';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
@@ -12,22 +13,33 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {ActionSheetRef} from 'react-native-actions-sheet';
 
 // local imports
+
+const CSafeAreaView = React.lazy(() => import('../../components/common/CSafeAreaView'))
+const CText = React.lazy(() => import('../../components/common/CText'))
+const CInput = React.lazy(() => import('../../components/common/CInput'))
+const KeyBoardAvoidWrapper = React.lazy(() => import('../../components/common/KeyBoardAvoidWrapper'))
+const CButton = React.lazy(() => import('../../components/common/CButton'))
+const GoogleLogin = React.lazy(() => import('../../components/GoogleLogin'))
+const FaceBookLogin = React.lazy(() => import( '../../components/FaceBookLogin'))
+const ForgotePassword = React.lazy(() => import('../../components/common/modal/ForgotePassword'))
+
+
 import typography from '../../themes/typography';
-import CSafeAreaView from '../../components/common/CSafeAreaView';
-import CText from '../../components/common/CText';
+// import CSafeAreaView from '../../components/common/CSafeAreaView';
+// import CText from '../../components/common/CText';
 import strings from '../../i18n/strings';
 import {colors, styles} from '../../themes';
 import images from '../../assets/images';
-import CInput from '../../components/common/CInput';
+// import CInput from '../../components/common/CInput';
 import {
   validateEmail,
   validateMobile,
   validatePassword,
 } from '../../utils/validators';
 import {Eye, EyeDashed} from '../../assets/svgs';
-import KeyBoardAvoidWrapper from '../../components/common/KeyBoardAvoidWrapper';
+// import KeyBoardAvoidWrapper from '../../components/common/KeyBoardAvoidWrapper';
 import {getHeight, moderateScale} from '../../common/constants';
-import CButton from '../../components/common/CButton';
+// import CButton from '../../components/common/CButton';
 import {StackNav} from '../../navigation/NavigationKeys';
 import {postRequestApi} from '../../api/axios';
 import {
@@ -36,14 +48,15 @@ import {
 } from '../../api/url';
 import {showPopupWithOk} from '../../utils/helpers';
 import {LoginWithOtpResponse, OtpVerifyResponse} from '../../types/Types';
-import GoogleLogin from '../../components/GoogleLogin';
-import FaceBookLogin from '../../components/FaceBookLogin';
+// import GoogleLogin from '../../components/GoogleLogin';
+// import FaceBookLogin from '../../components/FaceBookLogin';
 import {
   setRefreshToken,
   setToken,
   setUserDetail,
 } from '../../utils/asyncstorage';
-import ForgotePassword from '../../components/common/modal/ForgotePassword';
+// import ForgotePassword from '../../components/common/modal/ForgotePassword';
+
 
 const BlurredStyle: StyleProp<ViewStyle> = {
   backgroundColor: colors.white,
@@ -94,17 +107,17 @@ export default function LoginScreen() {
   };
 
   const onChangedEmailOrMobile = (val: string) => {
-    if (!isNaN(Number(val))) {
-      val.length !== 10 && setUserIDLength(10);
-      var {msg} = validateMobile(val.trim());
-      setEmailMobileError(msg);
-      setEmailOrMobile(val.trim());
-    } else {
-      val.length !== 320 && setUserIDLength(320);
-      var {msg} = validateEmail(val.trim());
-      setEmailOrMobile(val.trim());
-      setEmailMobileError(msg);
-    }
+    // if (!isNaN(Number(val))) {
+    //   val.length !== 10 && setUserIDLength(10);
+    //   var {msg} = validateMobile(val.trim());
+    //   setEmailMobileError(msg);
+    //   setEmailOrMobile(val.trim());
+    // } else {
+    //   val.length !== 320 && setUserIDLength(320);
+    //   var {msg} = validateEmail(val.trim());
+    //   setEmailOrMobile(val.trim());
+    //   setEmailMobileError(msg);
+    // }
   };
 
   const onChangePassword = (val: string) => {
@@ -220,8 +233,8 @@ export default function LoginScreen() {
             </TouchableOpacity>
           </View>
         </View>
-        <CInput
-          toGetTextFieldValue={onChangedEmailOrMobile}
+        {/* <CInput
+          // toGetTextFieldValue={onChangedEmailOrMobile}
           placeholder={strings.enterMobileOrEmail}
           _value={emailOrMobile}
           inputContainerStyle={[
@@ -233,7 +246,14 @@ export default function LoginScreen() {
           _onFocus={onFocusEmail}
           _onBlur={onBlurEmail}
           placeholderTextColor={colors.placeHolderColor}
+        /> */}
+        <TextInput
+        placeholder={strings.enterMobileOrEmail}
+        placeholderTextColor={colors.placeHolderColor}
+        value={emailOrMobile}
+        onChangeText={(text)=>{setEmailOrMobile(text)}}
         />
+
         <View style={styles.rowSpaceBetween}>
           <CText color={colors.alertColor} type="r12" style={styles.ml10}>
             {emailMobileError}

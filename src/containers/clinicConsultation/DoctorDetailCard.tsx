@@ -1,19 +1,24 @@
 import { SafeAreaView, StyleSheet, Text, View,TouchableOpacity,ScrollView,Image, TextInput} from 'react-native'
 import React,{useState,useEffect} from 'react'
-import CSafeAreaView from '../../components/common/CSafeAreaView';
-import CHeader from '../../components/common/CHeader';
+import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
+import { Dropdown } from 'react-native-element-dropdown'
+import Icon from 'react-native-vector-icons/Ionicons';
+
+const CSafeAreaView = React.lazy(() => import('../../components/common/CSafeAreaView'))
+const CText = React.lazy(() => import('../../components/common/CText'))
+const CButton = React.lazy(() => import('../../components/common/CButton'))
+const DoctorDetailCard = React.lazy(() => import('../FindADoctor/DoctorDetailCard'))
+
+// import CSafeAreaView from '../../components/common/CSafeAreaView';
 import { colors,styles } from '../../themes';
 import { BackArrow, DigitalPrecereption, FilterIcon, FreeFollowUp, SortIcon } from '../../assets/svgs';
-import { responsiveFontSize, responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
 import typography from '../../themes/typography';
-import Icon from 'react-native-vector-icons/Ionicons';
 import images from '../../assets/images';
 import {getHeight, moderateScale} from '../../common/constants';
-import CText from '../../components/common/CText';
-import CButton from '../../components/common/CButton';
+// import CText from '../../components/common/CText';
+// import CButton from '../../components/common/CButton';
 import strings from '../../i18n/strings';
-import DoctorDetailCard from '../FindADoctor/DoctorDetailCard';
-import { Dropdown } from 'react-native-element-dropdown'
+// import DoctorDetailCard from '../FindADoctor/DoctorDetailCard';
 import { cityData } from '../../api/constant';
 
 

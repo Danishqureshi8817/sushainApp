@@ -1,38 +1,26 @@
-import {
-  Image,
-  ScrollView,
-  StyleSheet,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image,ScrollView,StyleSheet,TouchableOpacity,View,} from 'react-native';
 import React, {useEffect} from 'react';
 import {FlashList} from '@shopify/flash-list';
 
 // local imports
-import CHeader from '../../components/common/CHeader';
+const CHeader = React.lazy(() => import('../../components/common/CHeader'))
+const CSafeAreaView = React.lazy(() => import('../../components/common/CSafeAreaView'))
+const CText = React.lazy(() => import('../../components/common/CText'))
+const RatingComponent = React.lazy(() => import('../../components/HomeComponent/RatingComponent'))
+const CButton = React.lazy(() => import('../../components/common/CButton'))
+const SubHeader = React.lazy(() => import('../../components/common/CommonComponent/SubHeader'))
+
+
+// import CHeader from '../../components/common/CHeader';
 import strings from '../../i18n/strings';
-import CSafeAreaView from '../../components/common/CSafeAreaView';
-import {
-  BlackShareIcon,
-  BottomIcon,
-  ChatIcon,
-  LikeIcon,
-  RegistrationIcon,
-  ServiceOfferdIcon,
-  VideoCallDrawerIcon,
-} from '../../assets/svgs';
+// import CSafeAreaView from '../../components/common/CSafeAreaView';
+import { BlackShareIcon,BottomIcon,ChatIcon,LikeIcon,RegistrationIcon,ServiceOfferdIcon,VideoCallDrawerIcon,} from '../../assets/svgs';
 import {colors, styles} from '../../themes';
-import CText from '../../components/common/CText';
-import RatingComponent from '../../components/HomeComponent/RatingComponent';
-import {
-  TIME_FORMATE,
-  TIME_YMD,
-  deviceWidth,
-  getHeight,
-  moderateScale,
-} from '../../common/constants';
-import CButton from '../../components/common/CButton';
-import SubHeader from '../../components/common/CommonComponent/SubHeader';
+// import CText from '../../components/common/CText';
+// import RatingComponent from '../../components/HomeComponent/RatingComponent';
+import { TIME_FORMATE, TIME_YMD,deviceWidth,getHeight,moderateScale,} from '../../common/constants';
+// import CButton from '../../components/common/CButton';
+// import SubHeader from '../../components/common/CommonComponent/SubHeader';
 import {DoctorSpecialityListData} from '../../types/Types';
 import {BASE_IMG_NEW_PATH, shopByategoryData} from '../../api/constant';
 import {DoctorDetailListAPI} from '../../api/FindDoctor';

@@ -5,11 +5,15 @@ import {ParamListBase, useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 // local imports
+const CText = React.lazy(() => import('../../components/common/CText'))
+const RatingComponent = React.lazy(() => import('../../components/HomeComponent/RatingComponent'))
+const CButton = React.lazy(() => import('../../components/common/CButton'))
+
 import {colors, styles} from '../../themes';
-import CText from '../../components/common/CText';
+// import CText from '../../components/common/CText';
 import {LikeIcon, ShareIcon} from '../../assets/svgs';
-import RatingComponent from '../../components/HomeComponent/RatingComponent';
-import CButton from '../../components/common/CButton';
+// import RatingComponent from '../../components/HomeComponent/RatingComponent';
+// import CButton from '../../components/common/CButton';
 import strings from '../../i18n/strings';
 import {DoctorListAPI} from '../../api/homeApis';
 import {getHeight, moderateScale} from '../../common/constants';
