@@ -37,7 +37,7 @@ export default function StackNavigation() {
         name={StackNav.DrawerNavigation}
         component={StackRoute.DrawerNavigation}
       />
-      <Stack.Screen name={StackNav.TabBar} component={StackRoute.TabBar} />
+      <Stack.Screen name={StackNav.TabBarNew} component={StackRoute.TabBarNew} />
 
       <Stack.Screen
         name={StackNav.ConsultDoctor}

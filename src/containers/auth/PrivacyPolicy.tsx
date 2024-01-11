@@ -7,6 +7,7 @@ import {WebView} from 'react-native-webview';
 import {styles} from '../../themes';
 import CSafeAreaView from '../../components/common/CSafeAreaView';
 import CHeader from '../../components/common/CHeader';
+
 import strings from '../../i18n/strings';
 import {startLoader, stopLoader} from '../../utils/helpers';
 

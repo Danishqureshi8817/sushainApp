@@ -299,7 +299,7 @@ export default function DrawerNavigation() {
       }}
       initialRouteName={StackNav.TabBar}
       drawerContent={(props: any) => <DrawerView {...props} />}>
-      <Drawer.Screen name={StackNav.TabBar} component={StackRoute.TabBar} />
+      <Drawer.Screen name={StackNav.TabBarNew} component={StackRoute.TabBarNew} />
     </Drawer.Navigator>
   );
 }

@@ -13,6 +13,7 @@ import Signup from '../containers/auth/Signup';
 import VerifyLoginOtp from '../containers/auth/VerifyLoginOtp';
 import VerifyRegisterOtp from '../containers/auth/VerifyRegisterOtp';
 import TabBar from './Type/TabBarNavigation';
+import TabBarNew from './Type/TabBar';
 import TermsOfService from '../containers/auth/TermsOfService';
 import PrivacyPolicy from '../containers/auth/PrivacyPolicy';
 import DrawerNavigation from './Type/DrawerNavigation';
@@ -51,6 +52,7 @@ export const StackRoute = {
   Signup,
   VerifyRegisterOtp,
   TabBar,
+  TabBarNew,
   TermsOfService,
   PrivacyPolicy,
   DrawerNavigation,
@@ -70,5 +72,6 @@ export const StackRoute = {
   MedicineCart,
   MedicineAddress,
   MedicineSummery,
+
 
 };

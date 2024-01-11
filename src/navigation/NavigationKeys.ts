@@ -15,6 +15,7 @@ export const StackNav = {
   VerifyRegisterOtp: 'VerifyRegisterOtp',
   Signup: 'Signup',
   TabBar: 'TabBar',
+  TabBarNew :'TabBarNew',
   DrawerNavigation: 'DrawerNavigation',
   TermsOfService: 'TermsOfService',
   PrivacyPolicy: 'PrivacyPolicy',

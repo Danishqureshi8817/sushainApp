@@ -6,11 +6,13 @@ import {
   StyleProp,
   ViewStyle,
   TextInput,
+  Text,
 } from 'react-native';
-import React, {useRef, useState} from 'react';
-import {ParamListBase, useNavigation} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {ActionSheetRef} from 'react-native-actions-sheet';
+import React, { useRef, useState } from 'react';
+import { ParamListBase, useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { ActionSheetRef } from 'react-native-actions-sheet';
+import { Formik } from 'formik';
 
 // local imports
 
@@ -20,7 +22,7 @@ const CInput = React.lazy(() => import('../../components/common/CInput'))
 const KeyBoardAvoidWrapper = React.lazy(() => import('../../components/common/KeyBoardAvoidWrapper'))
 const CButton = React.lazy(() => import('../../components/common/CButton'))
 const GoogleLogin = React.lazy(() => import('../../components/GoogleLogin'))
-const FaceBookLogin = React.lazy(() => import( '../../components/FaceBookLogin'))
+const FaceBookLogin = React.lazy(() => import('../../components/FaceBookLogin'))
 const ForgotePassword = React.lazy(() => import('../../components/common/modal/ForgotePassword'))
 
 
@@ -28,26 +30,27 @@ import typography from '../../themes/typography';
 // import CSafeAreaView from '../../components/common/CSafeAreaView';
 // import CText from '../../components/common/CText';
 import strings from '../../i18n/strings';
-import {colors, styles} from '../../themes';
+import { colors, styles } from '../../themes';
 import images from '../../assets/images';
 // import CInput from '../../components/common/CInput';
 import {
+  loginSchema,
   validateEmail,
   validateMobile,
   validatePassword,
 } from '../../utils/validators';
-import {Eye, EyeDashed} from '../../assets/svgs';
+import { Eye, EyeDashed } from '../../assets/svgs';
 // import KeyBoardAvoidWrapper from '../../components/common/KeyBoardAvoidWrapper';
-import {getHeight, moderateScale} from '../../common/constants';
+import { getHeight, moderateScale } from '../../common/constants';
 // import CButton from '../../components/common/CButton';
-import {StackNav} from '../../navigation/NavigationKeys';
-import {postRequestApi} from '../../api/axios';
+import { StackNav } from '../../navigation/NavigationKeys';
+import { postRequestApi } from '../../api/axios';
 import {
   USER_LOG_IN_WITH_PASSWORD,
   USER_REGISTER_LOG_IN_API,
 } from '../../api/url';
-import {showPopupWithOk} from '../../utils/helpers';
-import {LoginWithOtpResponse, OtpVerifyResponse} from '../../types/Types';
+import { showPopupWithOk } from '../../utils/helpers';
+import { LoginWithOtpResponse, OtpVerifyResponse } from '../../types/Types';
 // import GoogleLogin from '../../components/GoogleLogin';
 // import FaceBookLogin from '../../components/FaceBookLogin';
 import {
@@ -55,6 +58,7 @@ import {
   setToken,
   setUserDetail,
 } from '../../utils/asyncstorage';
+import { responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
 // import ForgotePassword from '../../components/common/modal/ForgotePassword';
 
 
@@ -69,26 +73,27 @@ const FocusedStyle: StyleProp<ViewStyle> = {
 
 export default function LoginScreen() {
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
-  const [emailOrMobile, setEmailOrMobile] = useState('');
-  const [emailMobileError, setEmailMobileError] = useState('');
-  const [userIDLength, setUserIDLength] = useState(320);
-  const [passwordError, setPasswordError] = useState('');
+  // const [emailOrMobile, setEmailOrMobile] = useState('');
+  // const [emailMobileError, setEmailMobileError] = useState('');
+  // const [userIDLength, setUserIDLength] = useState(320);
+  // const [passwordError, setPasswordError] = useState('');
   const [showPassword, setShowPassword] = useState(true);
-  const [emailInputStyle, setEmailInputStyle] =
-    useState<StyleProp<ViewStyle>>(BlurredStyle);
-  const [passwordInputStyle, setPasswordInputStyle] =
-    useState<StyleProp<ViewStyle>>(BlurredStyle);
+   let showPasswordRef = false
+  // const [emailInputStyle, setEmailInputStyle] =
+  //   useState(false);
+  // const [passwordInputStyle, setPasswordInputStyle] =
+  //   useState<StyleProp<ViewStyle>>(BlurredStyle);
 
-  const [password, setPassword] = useState('');
+  // const [password, setPassword] = useState('');
   const forgotePasswordRef = useRef<ActionSheetRef>(null);
 
-  const onFocusInput = (
-    onHighlight: React.Dispatch<React.SetStateAction<StyleProp<ViewStyle>>>,
-  ) => onHighlight(FocusedStyle);
-  const onBlurInput = (
-    onUnHighlight: React.Dispatch<React.SetStateAction<StyleProp<ViewStyle>>>,
-  ) => onUnHighlight(BlurredStyle);
-
+  // const onFocusInput = (
+  //   onHighlight: React.Dispatch<React.SetStateAction<StyleProp<ViewStyle>>>,
+  // ) => onHighlight(FocusedStyle);
+  // const onBlurInput = (
+  //   onUnHighlight: React.Dispatch<React.SetStateAction<StyleProp<ViewStyle>>>,
+  // ) => onUnHighlight(BlurredStyle);
+  // 
   const onFocusEmail = () => {
     onFocusInput(setEmailInputStyle);
   };
@@ -102,9 +107,9 @@ export default function LoginScreen() {
     onBlurInput(setPasswordInputStyle);
   };
 
-  const onPressShowPassword = () => {
-    setShowPassword(!showPassword);
-  };
+  // const onPressShowPassword = () => {
+  //   setShowPassword(!showPassword);
+  // };
 
   const onChangedEmailOrMobile = (val: string) => {
     // if (!isNaN(Number(val))) {
@@ -121,7 +126,7 @@ export default function LoginScreen() {
   };
 
   const onChangePassword = (val: string) => {
-    const {msg} = validatePassword(val.trim());
+    const { msg } = validatePassword(val.trim());
     setPassword(val.trim());
     setPasswordError(msg);
   };
@@ -129,7 +134,7 @@ export default function LoginScreen() {
   const onPressSkip = async () => {
     navigation.reset({
       index: 0,
-      routes: [{name: StackNav.DrawerNavigation}],
+      routes: [{ name: StackNav.DrawerNavigation }],
     });
   };
 
@@ -196,7 +201,7 @@ export default function LoginScreen() {
           global.userDetail = loginResponse?.data[0]?.user;
           navigation.reset({
             index: 0,
-            routes: [{name: StackNav.DrawerNavigation}],
+            routes: [{ name: StackNav.DrawerNavigation }],
           });
         }
       } else {
@@ -205,13 +210,13 @@ export default function LoginScreen() {
     }
   };
 
-  const rightAccessory = () => {
-    return (
-      <TouchableOpacity onPress={onPressShowPassword}>
-        {showPassword ? <EyeDashed /> : <Eye />}
-      </TouchableOpacity>
-    );
-  };
+  // const rightAccessory = () => {
+  //   return (
+  //     <TouchableOpacity onPress={()=>{setShowPassword(!showPassword)}}>
+  //       {showPassword ? <EyeDashed /> : <Eye />}
+  //     </TouchableOpacity>
+  //   );
+  // };
 
   return (
     <CSafeAreaView style={localStyles.root}>
@@ -233,6 +238,102 @@ export default function LoginScreen() {
             </TouchableOpacity>
           </View>
         </View>
+
+        {/* use formik   */}
+        <Formik
+          enableReinitialize={true}
+          initialValues={{ userid: "", password: "" }}
+          validationSchema={loginSchema}
+          onSubmit={(values, action) => {
+            // updateProfile(values.country,values.address,values.name,values.mobile)
+            console.warn('updateProfile', values);
+            // action.resetForm()
+            // loadUserInfo();
+
+          }
+          }
+        >
+          {({ handleChange, handleBlur, handleSubmit, values, touched, errors, isValid }) => (
+
+
+            <View style={{marginTop:responsiveHeight(1.5)}} >
+              <View style={{
+                borderWidth: moderateScale(1),
+                borderRadius: moderateScale(6),
+                height: moderateScale(40),
+                borderColor: colors.borderColor,
+                width: '100%', justifyContent: 'center', paddingHorizontal: responsiveWidth(0.7)
+              }}>
+                {/* <FontAwesome name="user-o" size={responsiveWidth(5)} /> */}
+                <TextInput
+                  onChangeText={handleChange('userid')}
+                  onBlur={handleBlur('userid')}
+                  value={values.userid}
+                  placeholder={strings.enterMobileOrEmail}
+                  placeholderTextColor={colors.placeHolderColor}
+
+                  autoCorrect={false}
+                  style={[
+                    localStyles.inputContainerStyle
+
+                  ]}
+
+                />
+
+              </View>
+              {(errors.userid && touched.userid) ? <Text style={{ color: 'red', paddingHorizontal: responsiveWidth(0.7) }}>{errors.userid}</Text> : null}
+
+              <View style={{ ...styles.rowSpaceBetween, ...styles.mv15, alignSelf: 'flex-end' }}>
+                <TouchableOpacity
+                  onPress={onPressSignInWithOtp}
+                  style={styles.selfEnd}>
+                  <CText
+                    type="s12"
+                    style={localStyles.underLineStyle}
+                    color={colors.success}>
+                    {strings.signInWithOtp}
+                  </CText>
+                </TouchableOpacity>
+              </View>
+
+              <View style={{
+                borderWidth: moderateScale(1),
+                borderRadius: moderateScale(6),
+                height: moderateScale(40),
+                borderColor: colors.borderColor,
+                width: '100%', paddingHorizontal: responsiveWidth(0.7), flexDirection: 'row', alignItems: 'center',
+              }}>
+                {/* <FontAwesome name="user-o" size={responsiveWidth(5)} /> */}
+                <TextInput
+                  onChangeText={handleChange('password')}
+                  onBlur={handleBlur('password')}
+                  value={values.password}
+                  placeholder={strings.password}
+                  placeholderTextColor={colors.placeHolderColor}
+                  secureTextEntry={false}
+                  autoCorrect={false}
+                  style={[
+                    localStyles.inputContainerStyle, { width: '85%' }
+
+                  ]}
+
+                />
+
+                <TouchableOpacity style={{}} onPress={() => {   }}>
+                  { true ? <EyeDashed /> : <Eye />}
+                </TouchableOpacity>
+
+              </View>
+              {(errors.password && touched.password) ? <Text style={{ color: 'red', paddingHorizontal: responsiveWidth(0.7) }}>{errors.password}</Text> : null}
+
+              {/* <TouchableOpacity style={{}} onPress={handleSubmit}>
+                <Text style={{}}>Submit</Text>
+              </TouchableOpacity> */}
+            </View>
+
+
+          )}
+        </Formik>
         {/* <CInput
           // toGetTextFieldValue={onChangedEmailOrMobile}
           placeholder={strings.enterMobileOrEmail}
@@ -247,29 +348,10 @@ export default function LoginScreen() {
           _onBlur={onBlurEmail}
           placeholderTextColor={colors.placeHolderColor}
         /> */}
-        <TextInput
-        placeholder={strings.enterMobileOrEmail}
-        placeholderTextColor={colors.placeHolderColor}
-        value={emailOrMobile}
-        onChangeText={(text)=>{setEmailOrMobile(text)}}
-        />
 
-        <View style={styles.rowSpaceBetween}>
-          <CText color={colors.alertColor} type="r12" style={styles.ml10}>
-            {emailMobileError}
-          </CText>
-          <TouchableOpacity
-            onPress={onPressSignInWithOtp}
-            style={styles.selfEnd}>
-            <CText
-              type="s12"
-              style={localStyles.underLineStyle}
-              color={colors.success}>
-              {strings.signInWithOtp}
-            </CText>
-          </TouchableOpacity>
-        </View>
-        <CInput
+
+
+        {/* <CInput
           toGetTextFieldValue={onChangePassword}
           placeholder={strings.password}
           _value={password}
@@ -285,7 +367,7 @@ export default function LoginScreen() {
           _onBlur={onBlurPassword}
           placeholderTextColor={colors.placeHolderColor}
           rightAccessory={rightAccessory}
-        />
+        /> */}
 
         <TouchableOpacity
           style={[styles.selfEnd, styles.mb10]}
@@ -337,7 +419,7 @@ export default function LoginScreen() {
           title={strings.doctorLogin}
           type="s14"
           containerStyle={localStyles.doctorBtnStyle}
-          onPress={() => {}}
+          onPress={() => { }}
         />
         <CText type="r10" color={colors.gray} align="center">
           {strings.byProceedingYou}
@@ -395,8 +477,12 @@ const localStyles = StyleSheet.create({
     ...styles.center,
   },
   inputContainerStyle: {
-    height: getHeight(40),
-    marginBottom: 0,
+    backgroundColor: colors.white,
+    marginLeft: responsiveWidth(4),
+    ...typography.fontSizes.f14,
+    ...typography.fontWeights.Regular,
+    ...styles.ph10,
+
   },
   inputBoxStyle: {
     ...styles.pl20,
